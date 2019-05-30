@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*===============faq================*/
+.faqs
+{
+	 box-shadow: 3px 3px 6px 2px #908E8E;
+}
+.question {
+    
+        padding: 22px;
+		border-bottom: 1px solid #D6D2D2;
+    font-size: 20px;
+    
+	   
+}
+.answer {
+    padding: 40px;
+   
+	    
+}
+.faq-section li {
+   font-size: 16px;
+    padding: 10px;
+    margin: 0 0 8px 0px;
+ 
+}
+#myList li{ display:none;
+}
+#loadMore {
+    color: #A5A0A0;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+#loadMore:hover {
+    color:black;
+}
+#showLess {
+    color: #A5A0A0;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+	  display:none;
+}
+#showLess:hover {
+    color:black;
+}
+.faq-section a:hover
+{
+	text-decoration:underline;
+}
+.faqs 
+{
+	display:none;
+}

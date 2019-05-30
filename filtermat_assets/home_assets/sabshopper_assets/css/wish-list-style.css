@@ -1,0 +1,112 @@
+
+#products_container{
+	width:70%;
+	background:white;
+	margin:0px auto;
+}
+.item-container{
+	width:100%;
+	overflow:hidden;
+	border-bottom:1px solid #e1e1e1;
+	padding: 6px 0px;
+}
+.col-s{
+	width:31%;
+	float:left;
+	margin:0px 4px;
+}
+button{
+	text-align: center;
+    text-transform: uppercase;
+    padding: 8px 17px;
+    border-radius: 4px;
+    margin: 2px;
+    border: none;
+    background-color: #e96656;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #FFF;	
+}
+#wish_list{
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	height: 30px;
+	width:300px;
+	background: white;
+	border:1px solid #e1e1e1;
+	 z-index: 99999;
+}
+.w-pname > a {
+  color: white;
+  text-transform: capitalize;
+}
+#wish_list .wish_list_heading
+{
+    margin: 0px 0px;
+    color: white !important;
+    height: 30px;
+    background-color: #c0392b !important;
+    verflow: hidden;
+    padding: 6px 3px;
+    font-weight: bold;
+    cursor: pointer;
+	
+}
+.w-image {
+  padding: 10px;
+  width: 69px;
+}
+#wish_list_item{
+width:100%;
+text-align:center;
+  border-spacing: 0px;
+    border-collapse: separate;
+}
+
+#msg{
+position: fixed;
+    display: none;
+    padding: 10px 25px;
+    background: #e74c3c;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    font-size: 15px;
+	width:30%;
+	color:white;
+	text-align:center;
+	z-index:99999;
+}
+
+.wishlist-item{
+padding:10px 5px;
+background:#e74c3c !important;
+color:white;
+}
+.w-premove{
+font-size:23px;	
+cursor:pointer;
+}
+.w-pname,.w-price{
+font-size: 15px;
+color:white !important;
+}
+#myad{
+    margin: 0px auto;
+    text-align: center;	
+}
+#mhead {
+    border: 1px solid #e3e3e3;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-family: georgia;
+    width: 100%;
+	background:white;
+}

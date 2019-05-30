@@ -1,0 +1,350 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+.owner-contact i.fa.fa-phone {
+    color: #ef821a;
+}
+.listings {
+	margin-top: 20px;
+}
+#sabListing {
+	padding-bottom: 420px;
+}
+.topForm {
+	background: #EF821A;
+/*	border-radius: 20px;
+*/}
+
+.form_box {
+	background: none repeat scroll 0 0 #fff;
+	border-radius: 30px;
+	color: #000;
+	display: inline;
+	font-size: 12px;
+	/* height: auto; */
+    /* margin: 14px 5px; */
+	    padding: 20px 0px;
+	width: 100%;
+	border: 2px solid #434242;
+}
+.form_box:focus, .form_box:active:focus, .form_box.active:focus {
+	outline: medium none;
+	outline-offset: -2px;
+}
+button.btn.form_box {
+	color: #fff;
+	background: #434242;
+	/* height: 36px; */
+	font-size: 12px;
+	font-weight: 600;
+	padding:12px;
+}
+.feature ul {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+}
+.feature li {
+font-size: 12px;
+    /* word-spacing: 4px; */
+    margin-left: 40px;
+    color: #fff;
+    text-indent: -7px;
+}
+.listDetails h1 {
+  color: #3c3c3c;
+  font-size: 17px;
+  margin-bottom: 0;
+  margin-top: 2px;
+  max-width: 222px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.listDetails h2 {
+  color: #3c3c3c;
+  font-size: 17px;
+  margin-bottom: 0;
+  margin-top: 2px;
+  max-width: 222px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.verified
+{
+	padding:0px;
+}
+.verified .fa-envelope {
+  position: relative;
+    top: 0;
+	left:0;
+    font-size: 23px;
+    cursor: pointer;
+    color: #ef821a;
+}
+.verified .fa-pencil-square-o {
+    position: relative;
+    top: 3px;
+    /* left: -1px; */
+    /* margin-right: 0px; */
+    /* margin-top: 3px; */
+    font-size: 25px;
+    font-weight: 600;
+    color: #ef821a;
+}
+/*.verified {
+	float: right;
+}*/
+li.owner-name {
+  color: #ff8100;
+  font-size: 14px;
+  font-weight: normal;
+  height: 22px;
+  max-width: 306px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+li.owner-contact {
+    font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 306px;
+    height: 18px;
+    white-space: nowrap;
+}
+/* li.owner-address {
+    font-size: 14px;
+    color: #7e7e7e;
+   /* font-weight: bold; 
+	min-height: 40px;
+    max-height: 40px;
+    text-transform: capitalize;
+	height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 318px;
+} */
+
+li.owner-address {
+  /* background: rgba(0, 0, 0, 0) url("../img/add.png") no-repeat scroll 0 1px; */
+  color: #7e7e7e;
+  font-size: 13px;
+  height: auto !important;
+  line-height: 16px;
+  max-width: 318px;
+  overflow: hidden;
+  padding-left: 2px;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+.listing-detailbox
+{
+	    padding-left: 0;
+    padding-right: 0;
+}
+.closing {
+       background: #ef821a;
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 9px;
+}
+.opening
+{
+	color: #7e7e7e;
+	    font-size: 13px;
+}
+.listDetails p
+{
+	font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+.listName {
+	border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 2px;
+}
+.listings_box {
+  background: #f1f1f1 none repeat scroll 0 0;
+  box-shadow: 0 0 11px #8a8989;
+  height: 140px;
+  margin-bottom: 12px !important;
+  padding-left: 0;
+}
+.listImage {
+  padding-left: 0;
+  padding-right: 0;
+  /*width: 26%;*/
+}
+.listImage img {
+	/*height: 183px;
+	width: 196px;*/
+	
+	    cursor: pointer;
+}
+.btn-list {
+	color: #fff;
+	background: #EF821A;
+	border-radius: 7px;
+	line-height: 1;
+}
+.btn-list:focus, .btn-list:active:focus, .btn-list.active:focus {
+	outline: medium none;
+	outline-offset: -2px;
+}
+.listDetails {
+	margin-top: 5px;
+	font-size: 13px;
+	margin-bottom: 6px;
+}
+.bold {
+	font-weight: 600;
+	font-size: 13px;
+}
+.enquiry-box .fa-user, .fa-envelope
+{
+	    position: absolute;
+    top: 13px;
+    left: 33px;
+    font-size: 18px;
+    color: #ef821a;
+}
+.enquiry-box .fa-phone
+{
+		    position: absolute;
+    top: 13px;
+    left: 33px;
+    font-size: 20px;
+	font-weight:bold;
+    color: #ef821a;
+}
+input#enq-name,input#enq-phone,input#enq-email
+{
+	padding-left:40px;
+}
+input#enq-name::-webkit-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+	
+}
+input#enq-phone::-webkit-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-email::-webkit-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-name::-moz-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-phone::-moz-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-email::-moz-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+
+input#enq-name:-ms-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-phone:-ms-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+input#enq-email:-ms-input-placeholder
+{
+	text-transform:uppercase;
+	font-weight:600;
+	font-size:14px;
+}
+i.fa.fa-asterisk
+{
+	font-size:12px;
+}
+.ribbon {
+    font-size: 16px !important;
+    width:90%;
+    position: relative;
+    background: #f0f0f0;
+    color: #fff;
+    text-align: center;
+    padding:4px;
+    margin: 1em auto 1em;
+}
+.ribbon:before, .ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0px;
+    border: 29px solid #f0f0f0;
+    z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ 
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-right-color: transparent;
+}
+
+/*.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}*/
+strong.ribbon-content {
+    color: #ef821a;
+    text-transform: uppercase;
+    font-size: 18px;
+	    line-height: 25px;
+}
+.non-semantic-protector { position: relative; z-index: 1; }
+.days img {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.varification-stamp {
+  background: rgba(0, 0, 0, 0) url("../img/varify.png") no-repeat scroll 0 0 / 62% auto;
+  height: 33px;
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  width: 37px;
+  z-index: 1;
+}
+.hours
+{
+	padding-right:0;
+	padding-left:0;
+}

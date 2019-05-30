@@ -1,0 +1,91 @@
+<section class="about-section product_sec">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-3">
+            <ul>
+			<li class="main_heading"><a href="<?php echo base_url().'category/';?>">All Categories</a></li>
+			<?php if(count($sidebarcategory) > 0){ 
+			foreach($sidebarcategory as $sidebarcategoryinfo){?>
+			<li style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(3)) { echo"background-color:#2991d6;";}?>"><a  style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(3)) { echo"color:#fff;";}?>"href="<?php echo base_url().'welcome/getsubcategory/'. $sidebarcategoryinfo['id'];?>"><?php echo $sidebarcategoryinfo['category'];?></a></li>
+			<?php }
+			}?>
+            </ul>
+         </div>
+         <div class="col-md-9">
+            <div class="row">
+			<?php 
+			if($this->uri->segment(3) && $this->uri->segment(4) && $this->uri->segment(5)){
+				if(count($getproduct) > 0){ 
+				foreach($getproduct as $getproductinfo){?>
+				<div class="col-md-3">
+				<?php if(!empty($getproductinfo['productimage'])) { ?>
+				<img src="<?php echo assets_url().'product/'.$getproductinfo['productimage'];?>">
+				<?php } else { ?>
+               <img src="<?php echo assets_url().'category/no-image.jpg';?>">
+				<?php } ?>
+				<h3><?php echo $getproductinfo['product_name'];?></h3>
+				
+				<p><a  target="_blank" href="<?php echo base_url().'welcome/showproduct/'.$getproductinfo['id'];?>">View Product</a></p>
+				</div><?php
+				} 
+				}
+			}
+			
+			else if($this->uri->segment(3) && $this->uri->segment(4)){
+				
+				if(count($innercategory) > 0){ 
+				foreach($innercategory as $innercategoryinfo){?>
+				<div class="col-md-3">
+				<?php if(!empty($innercategoryinfo['innercatimage'])) { ?>
+				<img src="<?php echo assets_url().'category/'.$innercategoryinfo['innercatimage'];?>">
+				<?php } else { ?>
+				<img src="<?php echo assets_url().'category/no-image.jpg';?>">
+				<?php } ?>
+				<h3><?php echo $innercategoryinfo['innercategory'];?></h3>
+				
+				<p><a href="<?php echo base_url().'welcome/getproduct/'. $this->uri->segment(3).'/'. $this->uri->segment(4).'/'.$innercategoryinfo['id'];?>">View Products</a></p>
+				</div><?php
+				} 
+				}
+			}
+			else if($this->uri->segment(3)){
+				if(count($getsubcategory) > 0){ 
+				foreach($getsubcategory as $getsubcategoryinfo){?>
+				<div class="col-md-3">
+				<?php if(!empty($getsubcategoryinfo['subimage'])) { ?>
+				<img src="<?php echo assets_url().'category/'.$getsubcategoryinfo['subimage'];?>">
+				<?php } else {?>
+				<img src="<?php echo assets_url().'category/no-image.jpg';?>">
+				<?php } ?>
+				<h3><?php echo $getsubcategoryinfo['subcategory'];?></h3>
+				
+				<p><a href="<?php echo base_url().'welcome/innercategory/'. $this->uri->segment(3).'/'.$getsubcategoryinfo['id'];?>">View Sub Categories</a></p>
+				</div><?php
+				} 
+				}
+				
+			}
+			else{
+				if(count($sidebarcategory) > 0){ 
+				foreach($sidebarcategory as $sidebarcategoryinfo){?>
+				<div class="col-md-3">
+				<?php if(!empty($sidebarcategoryinfo['image'])) { ?>
+				<img src="<?php echo assets_url().'category/'.$sidebarcategoryinfo['image'];?>">
+				<?php } else { ?>
+               <img src="<?php echo assets_url().'category/no-image.jpg';?>">
+				<?php } ?>
+				<h3><?php echo $sidebarcategoryinfo['category'];?></h3>
+				
+				<p><a href="<?php echo base_url().'welcome/getsubcategory/'. $sidebarcategoryinfo['id'];?>">View Categories</a></p>
+				</div><?php
+				} 
+				}
+			}
+			?>
+             
+			</div>
+         </div>
+      </div>
+   </div>
+</section>
+<?php $this->load->view('frontend/footer'); ?>

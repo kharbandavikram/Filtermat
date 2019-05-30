@@ -1,0 +1,59 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 12/09/2017 09:01
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticond41d.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 0px;
+}
+
+.flaticon-search:before { content: "\f100"; }
+.flaticon-like:before { content: "\f101"; }
+.flaticon-people:before { content: "\f102"; }
+.flaticon-contact:before { content: "\f103"; }
+.flaticon-diploma:before { content: "\f104"; }
+.flaticon-barometer:before { content: "\f105"; }
+.flaticon-power:before { content: "\f106"; }
+.flaticon-oil:before { content: "\f107"; }
+.flaticon-oil-rig:before { content: "\f108"; }
+.flaticon-transport:before { content: "\f109"; }
+.flaticon-oil-1:before { content: "\f10a"; }
+.flaticon-chimney:before { content: "\f10b"; }
+.flaticon-co2-gas:before { content: "\f10c"; }
+.flaticon-factory:before { content: "\f10d"; }
+.flaticon-cogwheel:before { content: "\f10e"; }
+.flaticon-landscape:before { content: "\f10f"; }
+.flaticon-city:before { content: "\f110"; }
+.flaticon-telephone:before { content: "\f111"; }
+.flaticon-placeholder:before { content: "\f112"; }
+
+.flaticon-people:before { content: "\f100"; }
+.flaticon-tool:before { content: "\f101"; }
+.flaticon-buildings:before { content: "\f102"; }
+.flaticon-tag:before { content: "\f103"; }
+.flaticon-money:before { content: "\f104"; }
+.flaticon-html-5-logo:before { content: "\f105"; }
+.flaticon-dot-arrow:before { content: "\f106"; }
+.flaticon-dumbbell-for-training:before { content: "\f107"; }
