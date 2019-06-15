@@ -33,7 +33,11 @@
 		  
           <li class="<?php if($leftbar_active=='pages'){echo 'active';}?>"><a href="<?php echo admin_url().'pages'; ?>"><i class="fa fa-chevron-right" aria-hidden="true"></i> Edit Other Pages</a></li>
           
-		  <li class="<?php if((isset($leftbar_active)) && (($leftbar_active=='uploads'))){echo "active";}?> treeview"> <a href="<?php echo admin_url().'uploads'; ?>"> <i class="fa fa-chevron-right" aria-hidden="true"></i> <span>Upload Images</span></a></li>  
+		  <li class="<?php if((isset($leftbar_active)) && (($leftbar_active=='uploads'))){echo "active";}?> treeview"> <a href="<?php echo admin_url().'uploads'; ?>"> <i class="fa fa-chevron-right" aria-hidden="true"></i> <span>Upload Images</span></a></li> 
+	
+		<li class="<?php if((isset($leftbar_active)) && (($leftbar_active=='user_register'))){echo "active";}?> treeview"> <a href="<?php echo admin_url().'users/all'; ?>"> <i class="fa fa-chevron-right" aria-hidden="true"></i> <span>Users</span></a></li>  
+
+		
        </ul>
      <!--  </li>  
 	  
@@ -55,7 +59,7 @@
       
         </ul>
       </li> 
-	  
+	
 	  <li class="<?php if((isset($leftbar_active)) && (($leftbar_active=='uploads'))){echo "active";}?> treeview"> <a href="<?php echo admin_url().'uploads'; ?>"> <i class="fa fa-building"></i> <span>Uploads</span></a></li>  -->
 	  </li>
 	</ul>

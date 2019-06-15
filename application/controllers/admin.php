@@ -14,7 +14,7 @@
 		
 		
 		public function index(){
-			$this->form_validation->set_rules('username','Username','trim|xss_clean|required');
+			$this->form_validation->set_rules('username','Email Id','trim|xss_clean|required');
 			$this->form_validation->set_rules('password','Password','trim|xss_clean|required|MD5');
 			if($this->form_validation->run()==false){
 				
@@ -676,4 +676,43 @@
 			}
 		}
 	/*************** end here *****************************/
-		}				
+		
+		public function user_registeration(){
+			$data['get_user_data']=$this->admin_model->get_user_data(null);	
+			$active['leftbar_active']='user_register';	
+			$this->load->view('admin/includes/header');
+			$this->load->view('admin/includes/leftbar',$active);
+			$this->load->view('admin/user_registeration',$data);	
+		}
+
+		public function add_user(){
+			$userid=$this->uri->segment(4); 
+			$this->form_validation->set_rules('first_name','First Name','trim|xss_clean|required');
+			$this->form_validation->set_rules('email_id','Email Id','trim|xss_clean|required');
+			$this->form_validation->set_rules('password','Password','trim|xss_clean|required|MD5');
+			if($this->form_validation->run()==true){
+			if($_POST){
+				$this->admin_model->save_user_data($userid);	
+			}
+			}else{
+			if($userid){
+				$data['get_user_data']=$this->admin_model->get_user_data($userid);	
+			}else{
+				$data['get_user_data']='';
+			}
+			$active['leftbar_active']='user_register';	
+			$this->load->view('admin/includes/header');
+			$this->load->view('admin/includes/leftbar',$active);
+			$this->load->view('admin/add_user',$data);	
+			}
+		}
+		
+		function delete_user($id){
+			$this->db->where('id',$id);
+			$this->db->delete('tbl_member'); 
+			$this->session->set_flashdata('success_msg','User Deleted Successfully!');
+			redirect(admin_url().'users/all');
+		}
+		
+		
+}				

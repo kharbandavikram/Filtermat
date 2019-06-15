@@ -17,20 +17,25 @@
 <!-- iCheck -->
 <link rel="stylesheet" href="<?php echo admin_assets_url(); ?>plugins/iCheck/square/blue.css">
 </head>
+<style>
+span.field_error p {
+    color: red;
+}
+</style>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box admin_login">
   <!--<div class="login-logo"> <a href="<?php echo admin_url().'index'; ?>"><img src="<?php echo admin_assets_url(); ?>dist/img/logo.png" /></a> </div>-->
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">
       <?php 
-				if(validation_errors()){
+				//if(validation_errors()){
 				?>
-    <div class="alert alert-danger alert-dismissable"> <i class="fa fa-ban"></i>
+   <!-- <div class="alert alert-danger alert-dismissable"> <i class="fa fa-ban"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <b>Alert!</b><?php echo validation_errors();?> </div>
+      <b>Alert!</b><?php echo validation_errors();?> </div>-->
     <?php
-				}
+			///	}
 				?>
     <?php 
 				if($this->session->flashdata('login_error')){
@@ -45,14 +50,18 @@
     <?php echo form_open(admin_url());?>
     <div class="form-group has-feedback">
       <input type="email" class="form-control" placeholder="Email" name="username">
-      <span class="glyphicon glyphicon-envelope form-control-feedback"></span> </div>
+      <span class="glyphicon glyphicon-envelope form-control-feedback"></span> 
+	  <span class="field_error"><?php echo form_error('username'); ?></span> 
+	  </div>
     <div class="form-group has-feedback">
       <input type="password" class="form-control" placeholder="Password" name="password">
-      <span class="glyphicon glyphicon-lock form-control-feedback"></span> </div>
-    <div class="row">
-      <div class="col-xs-4">
+      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+<span class="field_error"><?php echo form_error('password'); ?></span> 
+	  </div>
+    <div class="admin_button">
+      
         <button type="submit" class="btn btn-warning btn-block btn-flat">Sign In</button>
-      </div>
+      
       <!-- /.col --> 
     </div>
     <?php echo form_close();?> </div>

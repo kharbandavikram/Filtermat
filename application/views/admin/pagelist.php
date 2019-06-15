@@ -71,6 +71,8 @@
 				  } 
 				   else if(!empty($allpages_data->page_slug) && $allpages_data->page_slug=='footer') {
 					    echo "Footer";
+				   }else if(!empty($allpages_data->page_slug) && $allpages_data->page_slug=='price-list') {
+					    echo "Page List";
 				   }else{}?></td>
                  <?php /* <td><?php if($allpages_data->status == '1'){?>
 					 <a href="#" onClick="var a=confirm('Are you sure to Deactive this!');if(a){ deactive(<?= $allpages_data->id; ?>);}else{return false;}" title="Deactive"><i class="fa  fa-check-circle btn_action"></i></a>&nbsp;

@@ -4713,7 +4713,12 @@ class Admin_model extends CI_Model
 			'fr_product_name'=>$this->input->post('fr_product_name'),
 			'dut_product_name'=>$this->input->post('dut_product_name'),
 			'fr_product_data'=>$this->input->post('fr_product_data'),
-			'dut_product_data'=>$this->input->post('dut_product_data')
+			'dut_product_data'=>$this->input->post('dut_product_data'),
+			'eng_price_list_desc'=>$this->input->post('eng_price_list_desc'),
+			'dut_price_list_desc'=>$this->input->post('dut_price_list_desc'),
+			'fr_price_list_desc'=>$this->input->post('fr_price_list_desc'),
+			'pricelist_tag_status'=>$this->input->post('pricelist_tag_status'),
+			'price_list_status'=>$this->input->post('price_list_status'),
 		);	
 		$query_int=$this->db->insert('tbl_products',$insert_data);
 		return $this->db->insert_id();
@@ -4767,13 +4772,18 @@ class Admin_model extends CI_Model
 			'fr_product_name'=>$this->input->post('fr_product_name'),
 			'dut_product_name'=>$this->input->post('dut_product_name'),
 			'fr_product_data'=>$this->input->post('fr_product_data'),
-			'dut_product_data'=>$this->input->post('dut_product_data')
+			'dut_product_data'=>$this->input->post('dut_product_data'),
+			'eng_price_list_desc'=>$this->input->post('eng_price_list_desc'),
+			'dut_price_list_desc'=>$this->input->post('dut_price_list_desc'),
+			'fr_price_list_desc'=>$this->input->post('fr_price_list_desc'),
+			'pricelist_tag_status'=>$this->input->post('pricelist_tag_status'),
+			'price_list_status'=>$this->input->post('price_list_status'),
 			
 		);
 		
-		//echo"<pre>";
-	//	print_r($update_data);
-		//die();
+		// echo"<pre>";
+		// print_r($update_data);
+		// die();
 		$this->db->where('id',$productID);
 		$this->db->update('tbl_products',$update_data);
 	 }
@@ -4958,5 +4968,92 @@ class Admin_model extends CI_Model
 	  return $query; 
 	}
   /*********** end page **********************/
+	
+	 public function save_user_data($userid){
+		 $email_id=$_POST['email_id'];
+		 $slqq="select * from tbl_member where email_id='".$email_id."'";
+		 $query=$this->db->query($slqq)->result_array();
+		 $update['first_name']=$_POST['first_name'];
+		 $update['last_name']=$_POST['last_name'];
+		 $update['company_name']=$_POST['company_name'];
+		 $update['company_address']=$_POST['company_address'];
+		 $update['vat_number']=$_POST['vat_number'];
+		
+		 if($_POST['password']!=''){
+			$update['password']=$_POST['password'];
+		 }
+		 $update['created_on']=date('Y-m-d');
+		
+		if(!empty($userid)){
+		if(!empty($query) && $email_id!=$_POST['emailID']){
+			$this->session->set_flashdata('logginerrr','Email Already Exist!');
+			redirect("admin/edit/user/$userid");
+		}else{
+			$update['email_id']=$email_id;
+		}	
+		$update['id']=$userid;
+		$this->db->where('id',$userid);
+		$this->db->update('tbl_member',$update);
+		$this->session->set_flashdata('success_msg','User Details Updated Successfully!');
+		}else{
+			if($query){
+				$this->session->set_flashdata('logginerrr','Email Already Exist!');
+			redirect("admin/users/add");
+			die;
+			}else{
+				$update['email_id']=$email_id; 
+			}
+			
+			$this->db->insert('tbl_member',$update);
+			$this->session->set_flashdata('success_msg','User Add Successfully!');
+		}
+	
+		
+		redirect(admin_url().'users/all/');
+	}
+	
+	public function get_user_data($userid){
+		
+		if(!empty($userid)){
+			$con="where id='".$userid."'";
+		}else{
+			$con="";
+		}
+		$slqq="select * from tbl_member $con";
+		$query=$this->db->query($slqq)->result_array();
+		return $query;
+	}
+	
+   public function frontend_login($emailID,$pswd){
+		$query=$this->db->where('email_id',$emailID)->where('password',$pswd)->get('tbl_member')->result();
+		return $query; 
+	}
+	public function getpricelistactiveproduct(){
+		$frontlogin_data1 = $this->session->userdata('frontlogin_data1');
+		$public=$this->uri->segment(1);
+		// debug($public);
+		if(empty($frontlogin_data1)){
+			$con="and price_list_status='0'";
+		}else{
+			if($public=='price-list'){
+			$con="and price_list_status='0'";	
+			}else{
+			$con="and price_list_status='1'";
+			}
+		}
+		$getproduct="select * from tbl_products where status='1' and pricelist_tag_status='1' $con";
+		$query=$this->db->query($getproduct)->result_array();
+		return $query;
+	}
+	public function get_pricelistpage_data($lang){
+	  $query=$this->db->where('status','1')->where('language_id',$lang)->where('page_slug','price-list')->get('tbl_pages')->result_array();
+	 // echo $this->db->last_query();
+	return $query; 
+	} 
+	 public function subcategory_name($subcategory_id){
+		  
+		  $query=$this->db->where('id',$subcategory_id,'status','1')->get('tbl_subcategory')->result_array();
+		  return $query; 
+	  }
 	
 }

@@ -322,7 +322,7 @@ ul,li{
 	background-color:#ffffff; 
 	background-position:center center; 
 	background-repeat:no-repeat; 
-	background-image:url(../images/icons/preloader.gif);
+	/* background-image:url(../images/icons/preloader.gif); */
 }
 
 /*** 
@@ -2763,5 +2763,26 @@ td,th
 {
 	font-family:'Montserrat', sans-serif;
 }
-.product_sec{
-    margin-bottom: 80px !important;}
+/* .product_sec{ */
+    /* margin-bottom: 80px !important;} */
+.product_breadcrumb{	
+    margin-top: 25px;
+    margin-bottom: 25px;}
+	
+	
+.content-wrapper{
+ min-height: 370px !important;
+}	
+
+
+/* css changes */
+
+.product_sec .container{width:100%!important;padding:10px 15px;}
+
+.product_sec{background:#fff;}
+
+
+
+
+
+

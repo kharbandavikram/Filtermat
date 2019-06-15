@@ -8,8 +8,8 @@
 <!-- Stylesheets -->
 <link href="<?php echo assets_url(); ?>css/bootstrap.css" rel="stylesheet">
 <link href="<?php echo assets_url(); ?>css/responsive.css" rel="stylesheet">
-<link href="<?php echo assets_url(); ?>css/style.css?v=3.3" rel="stylesheet">
-<link href="<?php echo assets_url(); ?>css/product-css.css?v=3.14" rel="stylesheet">
+<link href="<?php echo assets_url(); ?>css/style.css?v=3" rel="stylesheet">
+<link href="<?php echo assets_url(); ?>css/product-css.css?v=3" rel="stylesheet">
 <script src="<?php echo assets_url(); ?>js/jquery.js"></script>
 <!-- mobile responsive meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,24 @@
 </head>
 <style>
 .link-logo-btn { float: left;}
+.carent_li{
+    padding-left: 5px !important;	
+}
+.main-menu .navigation .carent_li:before{
+background:unset !important;	
+}
+
+
+.main-menu .navigation .carent_li ul{
+left: -86px !Important;}
 </style>
+
 <body>
 <div class="page-wrapper"> 	
  	<!-- Preloader -->
-    <div class="preloader"></div>
+    <div class="preloader">
+	<div class="lds-facebook"><div></div><div></div><div></div></div>
+	</div>
     <!-- Preloader -->
 	<!--Header Upper-->
    
@@ -35,7 +48,7 @@
             <div class="header-area clearfix">
 			<div class="col-md-2 col-xs-2 logo_header">
 			  <div class="header_logo">
-			<h1 class="">FilterMat</h1>
+			<a href="<?php echo base_url();?>"><h1 class="">Filtermat</h1></a>
 			 <!--<a href="<?php echo base_url();?>"><img src="http://www.filtermat.be/FMlogo1.gif" name="FMlogo" border="0" alt=""></a>-->
 			 
 			 
@@ -45,7 +58,7 @@
                 <nav class="main-menu">
                     <div class="navbar-header">
                         <!-- Toggle Button -->      
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button type="button" class="" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -57,8 +70,10 @@
 						
 						<li><a href="<?php echo base_url();?>">Home</a></li> 
 						
-						<li class="product_search dropdown"><a href="<?php echo base_url().'search' ?>">Products</a>
-							 <ul><?php 
+						<!---Desktop------------>
+						<li class="product_search">
+						<a href="<?php echo base_url();?>category" onmouseover="show_dropdown(this)" >Products </a>
+							<ul class="dropdown-content"><?php 
 								if(count($menu) > 0){ 
 									foreach($menu as $menuinfo){?>
 									<li><a href="<?php echo base_url().'subcategory/'. $menuinfo['id'];?>"><?php echo $menuinfo['category']?></a></li><?php 
@@ -66,38 +81,54 @@
 								 }	?>
 							</ul> 
 						</li>
+						<!---------Desktop End------------>
+						
                         <li><a href="<?php echo base_url().'contact' ?>">Contact</a></li>
 						</ul>
 					  <?php } else if(!empty($lang['lang']) && $lang['lang']=='fr') { ?>
 						   <ul class="navigation clearfix">
 							<li><a href="<?php echo base_url();?>">Home</a></li> 
 							
-							<li class="product_search dropdown"><a href="<?php echo base_url().'search' ?>">Des produits</a>
-								 <ul><?php 
-									if(count($menu) > 0){ 
-										foreach($menu as $menuinfo){?>
-										<li><a href="<?php echo base_url().'subcategory/'. $menuinfo['id'];?>"><?php echo $menuinfo['fr_category']?></a></li><?php 
-										}
-									 }	?>
-								</ul> 
-							</li>
+							
+						<!---Desktop------------>
+						<li class="product_search">
+						<a href="<?php echo base_url();?>category" onmouseover="show_dropdown(this)" >Des produits </a>
+							<ul class="dropdown-content"><?php 
+								if(count($menu) > 0){ 
+									foreach($menu as $menuinfo){?>
+									<li><a href="<?php echo base_url().'subcategory/'. $menuinfo['id'];?>"><?php echo $menuinfo['category']?></a></li><?php 
+									}
+								 }	?>
+							</ul> 
+						</li>
+						<!---------Desktop End------------>
+						
+						
+							
 							<li><a href="<?php echo base_url().'contact' ?>">Contact</a></li>
 							</ul>
 					  
 					  <?php } else { ?>
 								  <ul class="navigation clearfix">
-										<li><a href="<?php echo base_url();?>">Home</a></li> 
+										<li><a href="<?php echo base_url();?>">Home</a></li> 	
 										
-										<li class="product_search dropdown"><a href="<?php echo base_url().'search' ?>">producten</a>
-											 <ul><?php 
-												if(count($menu) > 0){ 
-													foreach($menu as $menuinfo){?>
-													<li><a href="<?php echo base_url().'subcategory/'. $menuinfo['id'];?>"><?php echo $menuinfo['dut_category']?></a></li><?php 
-													}
-												 }	?>
-											</ul> 
-										</li>
-										<li><a href="<?php echo base_url().'contact' ?>">Contact</a></li>
+								
+						<!---Desktop------------>
+						<li class="product_search">
+						<a href="<?php echo base_url();?>category" onmouseover="show_dropdown(this)" >producten </a>
+							<ul class="dropdown-content"><?php 
+								if(count($menu) > 0){ 
+									foreach($menu as $menuinfo){?>
+									<li><a href="<?php echo base_url().'subcategory/'. $menuinfo['id'];?>"><?php echo $menuinfo['category']?></a></li><?php 
+									}
+								 }	?>
+							</ul> 
+						</li>
+						<!---------Desktop End------------>
+						
+						
+										
+							<li><a href="<?php echo base_url().'contact' ?>">Contact</a></li>
 								 </ul>
 					  <?php } ?>
 					  
@@ -133,5 +164,10 @@
 </div>			
         </div>
     </header>
+	
+<script>
+function show_dropdown(){
+$('.product_search').addClass('dropdown');
+}	
+</script>	
     <!--End Main Header -->
-    

@@ -219,9 +219,12 @@
                         <div class="form-group data_des"  style="display:<?php if( @$product_data[0]['data_type'] == 2){ echo'block';}else{ echo 'none';}?>" >
                             <label class="col-sm-3 control-label">Product Data</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="product_data" id="product_data"><?php  if (!empty($product_data[0]['product_data'])) {
-                                    echo htmlspecialchars($product_data[0]['product_data']);
-								}?></textarea>
+							<?php  if (!empty($product_data[0]['product_data'])) {
+                                $product_datas=$product_data[0]['product_data'];
+								}else{
+									 $product_datas='';
+								}?>
+                                <textarea class="form-control" name="product_data" id="product_data"></textarea>
 							<span class="field_error"><?php echo form_error('product_data'); ?></span> </div>
 						</div>
 						
@@ -229,18 +232,25 @@
 						<div class="form-group data_des"  style="display:<?php if( @$product_data[0]['data_type'] == 2){ echo'block';}else{ echo 'none';}?>" >
                             <label class="col-sm-3 control-label"> French Product Data</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="fr_product_data" id="fr_product_data"><?php  if (!empty($product_data[0]['fr_product_data'])) {
-                                    echo htmlspecialchars($product_data[0]['fr_product_data']);
-								}?></textarea>
+							<?php  if (!empty($product_data[0]['fr_product_data'])) {
+                                    $fr_product_data=$product_data[0]['fr_product_data'];
+								}else{
+									 $fr_product_data='';
+								}
+								?>
+                                <textarea class="form-control" name="fr_product_data" id="fr_product_data"></textarea>
 							<span class="field_error"><?php echo form_error('fr_product_data'); ?></span> </div>
 						</div>
 						
 						<div class="form-group data_des"  style="display:<?php if( @$product_data[0]['data_type'] == 2){ echo'block';}else{ echo 'none';}?>" >
                             <label class="col-sm-3 control-label"> Dutch Product Data</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="dut_product_data" id="dut_product_data"><?php  if (!empty($product_data[0]['dut_product_data'])) {
-                                    echo htmlspecialchars($product_data[0]['dut_product_data']);
-								}?></textarea>
+							<?php  if (!empty($product_data[0]['dut_product_data'])) {
+                                   $dut_product_data=$product_data[0]['dut_product_data'];
+								}else{
+									 $dut_product_data='';
+								}?>
+                                <textarea class="form-control" name="dut_product_data" id="dut_product_data"></textarea>
 							<span class="field_error"><?php echo form_error('dut_product_data'); ?></span> </div>
 						</div>
 						
@@ -290,6 +300,76 @@
 									</select>
 								<span class="field_error"><?php echo form_error('status'); ?></span> </div>
 							</div>
+							
+						<div class="form-group">
+								<label class="col-sm-3 control-label">Price List Tag</label>
+								<div class="col-sm-9">
+								<input type="checkbox" name="pricelist_tag_status" value="<?php if(@$product_data[0]['pricelist_tag_status']!=''){ echo $product_data[0]['pricelist_tag_status']; }else{ echo '0';} ?>" class="price_list_type" onclick="price_list_types(this);" <?php if(@$product_data[0]['pricelist_tag_status']=='1'){ echo 'checked';}?>/>
+								<span class="field_error"><?php echo form_error('price_list_type'); ?></span> 
+								</div>
+						</div>
+						 <?php if(@$product_data[0]['pricelist_tag_status']=='1'){ 
+						$style='style="display:block;"'; 
+						 }else{ 
+						$style='style="display:none;"'; 
+						} ?>
+						
+						<div class="form-group price_list_desc_div" <?php echo $style; ?> >
+								<label class="col-sm-3 control-label">Price List Status</label>
+								<div class="col-sm-9 price_radio">
+							<input type="radio" name="price_list_status" value="0"<?php if(@$product_data[0]['price_list_status']=='0'){ echo 'checked';}?>><span>Public</span>
+							<input type="radio" name="price_list_status" value="1"<?php if(@$product_data[0]['price_list_status']=='1'){ echo 'checked';}?>><span>Private</span>
+								<span class="field_error"><?php echo form_error('eng_price_list_desc'); ?></span> 
+								</div>
+						</div>	
+						
+						
+						<div class="form-group price_list_desc_div" <?php echo $style; ?> >
+								<label class="col-sm-3 control-label">English Price List Description </label>
+								<div class="col-sm-9">
+								<?php
+										if (!empty(@$product_data[0]['eng_price_list_desc'])) {
+										$eng_price_list_desc=$product_data[0]['eng_price_list_desc'];
+										}else{
+											$eng_price_list_desc='';
+										}
+									?>
+								
+								<textarea class="form-control" name="eng_price_list_desc"> </textarea>
+								<span class="field_error"><?php echo form_error('eng_price_list_desc'); ?></span> 
+								</div>
+						</div>	
+						
+						<div class="form-group price_list_desc_div" <?php echo $style; ?> >
+								<label class="col-sm-3 control-label">French Price List Description </label>
+								<div class="col-sm-9">
+								<?php
+										if (!empty(@$product_data[0]['fr_price_list_desc'])) {
+											$fr_price_list_desc=$product_data[0]['fr_price_list_desc'];
+										}else{
+											$fr_price_list_desc='';
+										}
+									?>
+								<textarea class="form-control" name="fr_price_list_desc"></textarea>
+								<span class="field_error"><?php echo form_error('fr_price_list_desc'); ?></span> 
+								</div>
+						</div>	
+
+						<div class="form-group price_list_desc_div" <?php echo $style; ?> >
+								<label class="col-sm-3 control-label"> Dutch Price List Description</label>
+								<div class="col-sm-9">
+									<?php
+										if (!empty(@$product_data[0]['dut_price_list_desc'])) {
+											$dut_price_list_desc=$product_data[0]['dut_price_list_desc'];
+										}else{
+											$dut_price_list_desc='';
+										}
+									?>
+								<textarea class="form-control" name="dut_price_list_desc"></textarea>
+								<span class="field_error"><?php echo form_error('dut_price_list_desc'); ?></span> 
+								</div>
+						</div>	
+							
 					</div>
                     <!-- /.box-body -->
 					
@@ -312,6 +392,21 @@
 <script src="<?php echo admin_assets_url(); ?>dist/js/bootstrap-chosen.js"></script>-->
 <script src="<?php echo admin_assets_url(); ?>ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
+function price_list_types(elm){
+ if ($(elm).prop("checked")) {
+        // checked
+		
+		$('.price_list_desc_div').show();
+		$('.price_list_type').val('1');
+        return;
+    }else{
+    // not checked	
+	$('.price_list_desc_div').hide();
+	$('.price_list_type').val('0');
+	}
+}
+
+
 	function category_change(id)
 	{
 		$("#subcategory_id").val('')
@@ -326,12 +421,57 @@
 		});
 	}
 	
+    
+	// CKEDITOR.replace( 'product_data' );
+	// CKEDITOR.replace( 'fr_product_data' );
+	// CKEDITOR.replace( 'dut_product_data' );
+
 	
-	CKEDITOR.replace( 'product_data' );
-	CKEDITOR.replace( 'fr_product_data' );
-	CKEDITOR.replace( 'dut_product_data' );
+
+	CKEDITOR.plugins.addExternal('forms','<?php echo base_url();?>filtermat_assets/admin_asset/ckeditor/plugins/forms/', 'plugin.js' );
+	CKEDITOR.plugins.addExternal('div','<?php echo base_url();?>filtermat_assets/admin_asset/ckeditor/plugins/div/', 'plugin.js' );
+
+	CKEDITOR.replace( 'product_data', {
+		extraPlugins: 'forms,div'
+	} );
+	
+	CKEDITOR.replace( 'fr_product_data', {
+			extraPlugins: 'forms,div'
+		} );
+	
+	CKEDITOR.replace( 'dut_product_data', {
+			extraPlugins: 'forms,div'
+		} );
+
+
+
+	
+	CKEDITOR.replace( 'eng_price_list_desc', {
+		extraPlugins: 'forms,div'
+	} );
+
+CKEDITOR.replace( 'dut_price_list_desc', {
+		extraPlugins: 'forms,div',
+	} );
+	
+CKEDITOR.replace( 'fr_price_list_desc', {
+		extraPlugins: 'forms,div'
+	} );
+	
+CKEDITOR.instances.eng_price_list_desc.setData(`<?php echo $eng_price_list_desc; ?>`);	
+CKEDITOR.instances.dut_price_list_desc.setData(`<?php echo $dut_price_list_desc; ?>`);	
+CKEDITOR.instances.fr_price_list_desc.setData(`<?php echo $fr_price_list_desc; ?>`);
+
+	
+CKEDITOR.instances.product_data.setData(`<?php echo $product_datas; ?>`);	
+CKEDITOR.instances.fr_product_data.setData(`<?php echo $fr_product_data; ?>`);	
+CKEDITOR.instances.dut_product_data.setData(`<?php echo $dut_product_data; ?>`);	
+
+	// CKEDITOR.replace( 'dut_price_list_desc' );
+	// CKEDITOR.replace( 'fr_price_list_desc' );
 </script> 
 <script type="text/javascript">
+
 	function subcategory_change(id){
 		
 		$("#innercategory_id").val('')
@@ -370,6 +510,11 @@
 	
 }
 	?>
+
+	
+	
+	
+	
 <!-- AdminLTE App --> 
 <script src="<?php echo admin_assets_url(); ?>dist/js/app.min.js"></script> 
 <!-- AdminLTE for demo purposes --> 

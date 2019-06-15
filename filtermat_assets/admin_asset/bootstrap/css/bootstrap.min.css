@@ -2314,7 +2314,7 @@ input[type=date].form-control, input[type=time].form-control, input[type=datetim
 }
 }
 .form-group {
-	margin-bottom: 15px
+	margin: 0 10px 20px 10px;
 }
 .checkbox, .radio {
 	position: relative;
@@ -2623,11 +2623,11 @@ select[multiple].input-lg, textarea.input-lg {
 }
 .btn {
 	display: inline-block;
-	padding: 6px 12px;
+	padding: 10px 12px;
 	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 22px;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: middle;
@@ -2925,7 +2925,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 .btn-block {
 	display: block;
-	width: 100%
+	width: 100%;
 }
 .btn-block+.btn-block {
 	margin-top: 5px

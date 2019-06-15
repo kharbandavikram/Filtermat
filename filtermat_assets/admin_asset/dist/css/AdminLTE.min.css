@@ -1067,7 +1067,7 @@ background:#fff
 }
 }
 .form-control {
-	border-radius:0;
+	border-radius:5px;
 	box-shadow:none;
 	border-color:#d2d6de
 }
@@ -1897,7 +1897,7 @@ margin-right:10px
 	text-transform:uppercase
 }
 .btn.btn-flat {
-	border-radius:0;
+	border-radius:5px;
 	-webkit-box-shadow:none;
 	-moz-box-shadow:none;
 	box-shadow:none;
@@ -1967,11 +1967,12 @@ margin-right:10px
 	background-color:#d73925
 }
 .btn-warning {
-	background-color:#f39c12;
-	border-color:#e08e0b
+	background-color: #1e54b4;
+    border-color: #1e54b4;
 }
+
 .btn-warning:hover, .btn-warning:active, .btn-warning.hover {
-	background-color:#e08e0b
+	background-color:#1e54b4;border-color: #1e54b4;
 }
 .btn-outline {
 	border:1px solid #fff;
@@ -2769,8 +2770,12 @@ box-shadow:0 2px 3px rgba(0, 0, 0, 0.125)
 	background:#d2d6de
 }
 .login-box, .register-box {
-	width:360px;
+	width:60%;
 	margin:7% auto
+}
+.admin_button {
+    display: inline-block;
+    margin: 0 0 20px 10px;
 }
 @media (max-width:768px) {
 .login-box, .register-box {
@@ -2778,11 +2783,33 @@ width:90%;
 margin-top:20px
 }
 }
+
 .login-box-body, .register-box-body {
+    background: #fff;
+    width: 400px;
+    box-sizing: border-box;
+    display: block;
+    float: none;
+   
+    margin: 0 auto;
+}
+.admin_login .login-box-body{
+ border-radius: 15px;	
+}
+.admin_login .login-box-body form{
+padding: 0px 36px 15px 36px;	
+}
+
+.admin_login .admin_button {
+    margin: 5px 0 20px 10px;
+}
+.login-box-body-form, .register-box-body {
 	background:#fff;
-	padding:20px;
-	border-top:0;
-	color:#666
+	width:100%;
+	box-sizing:border-box;
+	display:inline-block;
+	float:left;
+	min-height:400px;
 }
 .login-box-body .form-control-feedback, .register-box-body .form-control-feedback {
 	color:#777
@@ -2790,7 +2817,9 @@ margin-top:20px
 .login-box-msg, .register-box-msg {
 	margin:0;
 	text-align:center;
-	padding:0 20px 20px 20px
+	padding:40px 20px 20px 20px;font-size: 30px;
+    color: #1e54b4;
+    font-weight: 600;
 }
 .social-auth-links {
 	margin:10px 0
@@ -2799,6 +2828,21 @@ margin-top:20px
 	width:600px;
 	margin:20px auto 0 auto
 }
+.login-box-body-form .col-md-6.login_form{padding:50px 20px 50px;}
+
+.login-box-body-form .col-md-6 img.login_img{width:400px;
+                                 min-height:400px;}
+
+.login-box-body-form .col-md-6.login_pic{padding-left:0;padding-right:21px;}
+
+.login-box-body-form .col-xs-4.form_button{width:100%;
+display:inline-block;text-align:center;padding:0 10px;}
+img.sign_user {
+    width: 40px;
+    margin: 0 10px 0px 0px;
+}
+
+
 @media (max-width:991px) {
 .error-page {
 width:100%
@@ -4028,4 +4072,59 @@ i.fa.fa-minus-circle.btn_action {
 	color:red;
 }	
 	
+
+
+
+
+@media (max-width: 1024px){
+	.login-box .col-md-6 img.login_img {
+    width: 305px;
+    
+}
 	
+	
+}	
+
+
+@media (max-width: 768px){
+.login-box .col-md-6.login_form{padding:0px 20px 50px;}
+.login-box .col-md-6 img.login_img {
+    width: 100%;
+    
+}
+.login-box-body-form .col-md-6.login_pic {
+    padding-left: 0;
+    padding-right: 0;
+}
+.login-box-body-form .col-xs-4.form_button {
+    
+    margin-bottom: 40px;
+}
+
+}
+
+@media (max-width: 420px){
+	
+	.login-box-body, .register-box-body{width:100%;}
+	
+}
+
+
+
+.price_radio input[type="radio"] {
+    width: 16px;
+    height: 16px;
+}
+
+.price_radio span {
+    font-size: 14px;
+    padding: 0px 8px 0 8px;
+    top: -2px;
+    position: relative;
+    font-weight: 600;
+}
+
+
+#defaultForm .price_list_type,
+.price_list_desc_div input[type=radio]{
+margin: 11px 0 0;}

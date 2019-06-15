@@ -1,46 +1,50 @@
-<?php $lang = $this->session->userdata('lang');?>
+<?php $lang = $this->session->userdata('lang'); ?>
 <section class="about-section product_sec">
    <div class="container">
       <div class="row">
          <div class="col-md-2">
-            <ul>
-			<li class="main_heading"><a href="<?php echo base_url().'category/';?>">
-			<?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo "All Categories"; }
-			else if(!empty($lang['lang']) && $lang['lang']=='fr') { echo "toutes catégories"; }
-			else{ echo "Alle categorieën"; }
-			?>
-			</a></li>
-			<?php if(count($sidebarcategory) > 0){ 
-				foreach($sidebarcategory as $sidebarcategoryinfo){?>
-					<li style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(2)) { echo"background-color:#2991d6;";}?>"><a  style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(2)) { echo"color:#fff;";}?>"href="<?php echo base_url().'subcategory/'. $sidebarcategoryinfo['id'];?>">
-					<?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo $sidebarcategoryinfo['category']; }
-					else if(!empty($lang['lang']) && $lang['lang']=='fr') { echo $sidebarcategoryinfo['fr_category']; }
-					else{ echo $sidebarcategoryinfo['dut_category']; }
-					?>
-					
-					</a></li><?php 
-				}
-			}?>
-            </ul>
+           <?php $this->load->view('frontend/include/sidebar_filter',array(
+				'lang'=>$lang,
+				'sidebarcategory'=>$sidebarcategory
+				)); ?>
+			
          </div>
          <div class="col-md-10">
-            <div class="row">
-			<div class="background-color">
-				<h2>
-				<?php if(!empty($lang['lang']) && $lang['lang']=='en') { 
+            <div class="row">		
+				<nav aria-label="breadcrumb" class="product_breadcrumb">
+				  <ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">	
+					<?php if(!empty($lang['lang']) && $lang['lang']=='en') { 
 					if(isset($catname[0]['category'])) {echo $catname[0]['category'];} 
 
-				}
+					}
 				else if(!empty($lang['lang']) && $lang['lang']=='fr') {
 				if(isset($catname[0]['fr_category'])) {echo $catname[0]['fr_category'];} 
 				}
 				else{ 
 				if(isset($catname[0]['dut_category'])) {echo $catname[0]['dut_category'];} 
 				}
+				?></li>
+				  </ol>
+				</nav>
+				
+			<div class="background-color">
+				<!--<h2>
+				<?php //if(!empty($lang['lang']) && $lang['lang']=='en') { 
+					///if(isset($catname[0]['category'])) {echo $catname[0]['category'];} 
+
+				///}
+				//else if(!empty($lang['lang']) && $lang['lang']=='fr') {
+				//if(isset($catname[0]['fr_category'])) {echo $catname[0]['fr_category'];} 
+				//}
+				//else{ 
+				//if(isset($catname[0]['dut_category'])) {echo $catname[0]['dut_category'];} 
+				//}
 				?>
 				
 				
-				 </h2> 
+				 </h2>--> 
 			<?php 
 			 if(count($getsubcategory) > 0){ 
 				foreach($getsubcategory as $getsubcategoryinfo){?>

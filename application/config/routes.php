@@ -50,6 +50,24 @@ $route['subcategory/(:any)'] = 'welcome/getsubcategory/$1';
 $route['innercategory/(:any)'] = 'welcome/innercategory/$1';
 $route['product/(:any)'] = 'welcome/getproduct/$1';
 $route['showproduct/(:any)'] = 'welcome/showproduct/$1';
+$route['login'] = 'welcome/login';
+// $route['price/list'] = 'welcome/get_price_list';
+$route['price/list'] = 'welcome/price_list_product';
+// $route['price/list/products/(:any)'] = 'welcome/price_list_product/$1';
+$route['price/list/showproducts/(:any)'] = 'welcome/pricelistshowproducts/$1';
+$route['logout'] = 'welcome/logout';
+
+//admin
+$route['admin/users/all'] = 'admin/user_registeration';
+$route['admin/users/add'] = 'admin/add_user';
+$route['admin/add/user'] = 'admin/add_user';
+$route['admin/edit/user/(:any)'] = 'admin/add_user/$1';
+$route['admin/delete/user/(:any)'] = 'admin/delete_user/$1';
+// $route['price-list'] = 'welcome/price_list_page';
+$route['price-list'] = 'welcome/price_list_product';
+$route['send_message'] = 'welcome/send_message';
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

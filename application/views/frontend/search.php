@@ -24,7 +24,7 @@
 					<h6 class="box-title"><?php if(!empty($about[0]['page_search_for_filters'])){
 					echo $about[0]['page_search_for_filters'];
 					}?></h6>
-					<a  title="Advanced Search" style="float: right; margin-right:201px;" href="<?php echo base_url().'category/';?>"><i class="fa fa-plus" aria-hidden="true"></i> Advanced Search
+					<a  title="Advanced Search" class="advanced_search" href="<?php echo base_url().'category/';?>"><i class="fa fa-plus" aria-hidden="true"></i> Advanced Search
 					
 					<a/>
 					</div>
@@ -36,7 +36,7 @@
                     
                     ?>
                     <div class="box-body">
-                        <div class="box-body">
+                        <div class="box-body box-height">
             
              <?php
 			  $category=$this->db->order_by("category", "asc")->where('status',1)->get('tbl_category')->result();

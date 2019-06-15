@@ -3,30 +3,76 @@
    <div class="container">
       <div class="row">
          <div class="col-md-2">
-            <ul>
-			<li class="main_heading"><a href="<?php echo base_url().'category/';?>">
-			<?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo "All Categories"; }
-			else if(!empty($lang['lang']) && $lang['lang']=='fr') { echo "toutes catégories"; }
-			else{ echo "Alle categorieën"; }
-			?>
-			</a></li>
-			<?php if(count($sidebarcategory) > 0){ 
-				foreach($sidebarcategory as $sidebarcategoryinfo){?>
-					<li style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(2)) { echo"background-color:#2991d6;";}?>"><a  style="<?php if($sidebarcategoryinfo['id']==$this->uri->segment(2)) { echo"color:#fff;";}?>"href="<?php echo base_url().'subcategory/'. $sidebarcategoryinfo['id'];?>">
-					<?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo $sidebarcategoryinfo['category']; }
-					else if(!empty($lang['lang']) && $lang['lang']=='fr') { echo $sidebarcategoryinfo['fr_category']; }
-					else{ echo $sidebarcategoryinfo['dut_category']; }
-					?>
-					
-					</a></li><?php 
-				}
-			}?>
-            </ul>
+		 	  <?php $this->load->view('frontend/include/sidebar_filter',array(
+				'lang'=>$lang,
+				'sidebarcategory'=>$sidebarcategory
+				)); ?>
          </div>
          <div class="col-md-10">
             <div class="row">
+			<nav aria-label="breadcrumb" class="product_breadcrumb">
+				  <ol class="breadcrumb">
+				  <?php 
+						$cat_name1='';
+						$sub_cat1='';
+						$inner_cat1='';
+						$catID='';
+						$sub_catID='';
+						$inner_catID='';
+						if(isset($catname[0]['category'])) {
+						$cat_name1=$catname[0]['category'];
+						$catID=$catname[0]['id'];
+						} 
+
+						if(isset($getsubcategory[0]['subcategory'])) {
+						$sub_cat1=$getsubcategory[0]['subcategory'];
+						$sub_catID=$getsubcategory[0]['id'];
+						} 
+
+						if(isset($innercategory[0]['innercategory'])) {
+						$inner_cat1=$innercategory[0]['innercategory'];
+						$inner_catID=$innercategory[0]['id'];
+						} 
+				  
+				  if(!empty($lang['lang']) && $lang['lang']=='en') { 
+					$cat_name=$cat_name1;
+					$sub_cat=$sub_cat1;
+					$inner_cat=$inner_cat1;
+					}else if(!empty($lang['lang']) && $lang['lang']=='fr') {
+					$cat_name=$cat_name1;
+					$sub_cat=$sub_cat1;
+					$inner_cat=$inner_cat1;
+					}
+					else{ 
+					$cat_name=$cat_name1;
+					$sub_cat=$sub_cat1;
+					$inner_cat=$inner_cat1;
+					}
+				?>
+				  
+				  
+				  
+					<li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
+					<?php if($cat_name!=''){ ?>
+					<li class="breadcrumb-item " aria-current="page"><a href="<?php echo base_url(); ?>subcategory/<?php echo $catID; ?>">
+					<?php echo $cat_name; ?></a>
+					</li>	
+					<?php } ?>
+					<?php if($sub_cat!=''){ ?>
+					<li class="breadcrumb-item " aria-current="page"><a href="<?php echo base_url(); ?>innercategory/<?php echo $catID.'/'.$sub_catID; ?>">	
+					<?php echo $sub_cat; ?></a>
+					</li>
+					<?php } ?>
+					<?php if($inner_cat!=''){ ?>
+					<li class="breadcrumb-item Active" aria-current="page">
+					<?php echo $inner_cat; ?>
+					</li>
+					<?php } ?>
+				  </ol>
+				</nav>
+			
 			<div class="background-color">
-			<h2><?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo 'Products'; }else if(!empty($lang['lang']) && $lang['lang']=='fr'){ echo 'Des produits';}else{ echo 'producten';}?></h2>
+			<!--<h2><?php if(!empty($lang['lang']) && $lang['lang']=='en') { echo 'Products'; }else if(!empty($lang['lang']) && $lang['lang']=='fr'){ echo 'Des produits';}else{ echo 'producten';}?></h2>-->
 			<?php
 			if(count($getproduct) > 0){ 
 				foreach($getproduct as $getproductinfo){?>
